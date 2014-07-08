@@ -1,0 +1,32 @@
+extends layout
+
+block blog
+  //
+    Navbar
+  //
+    Navbar
+  .area-content
+    .container
+      .row.bottom-margin(style='margin-bottom: 10px;')
+        h1.text-center Start Up Central
+      .row
+        //
+          Person
+        //
+ 
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            each post, i in posts
+              li
+                 a(href="/community/start_ups/"+post.title)= post.title
+
+                  
+                  
+        //
+          End Person
+        .clearfix
+        .clearfix
+  //
+    FOOTER
+  //
+    FOOTER

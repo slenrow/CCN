@@ -1,0 +1,80 @@
+extends layout
+
+block header
+  // Login 
+  #loginModal.modal.fade(aria-hidden='true', aria-labelledby='loginModalLabel', role='dialog', tabindex='-1')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+          h4.modal-title Login
+        .modal-body
+          form(action='/login', method='post', name='form1')
+            .row
+              .col-md-6
+                label.control-label(for='loginName') Username: 
+                input#myusername.form-control(name='myusername', type='text')
+              .col-md-6
+                label.control-label(for='loginPass') Password: 
+                input#mypassword.form-control(name='mypassword', type='password')
+        .modal-footer
+          button.btn.btn-default(data-event-title='login-cancel', data-dismiss='modal', type='button') Cancel
+          input.btn.btn-default.red(type='button', name='Submit', value='Login')
+  //
+     END Login 
+  //
+     Registration 
+  #registerModal.modal.fade(aria-hidden='true', aria-labelledby='registerModal', role='dialog', tabindex='-1')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+          h4.modal-title Register for College Crypto Network
+        .modal-body
+          form(action='', method='post', role='form')
+            .row
+              .col-md-6
+                label.control-label(for='name') Name:
+                input#name.form-control(placeholder='', name='', type='text')
+              .col-md-6
+                label.control-label(for='email') Email:
+                input#email.form-control(placeholder='', name='', type='text')
+            .row
+              .col-md-6
+                label.control-label(for='username') Username:
+                input#username.form-control(placeholder='', name='', type='text')
+              .col-md-6
+                label.control-label(for='password') Password:
+                input#password.form-control(placeholder='', name='', type='password')
+        .modal-footer
+          button.btn.btn-default(data-event-title='chapter-cancel', data-dismiss='modal', type='button') Cancel
+          button#register-button.btn.btn-default.red(data-event-title='submit', type='button') Register
+  //
+     END Registration 
+  //
+     NAVBAR 
+  .header-main
+    .container.pb0
+      nav.navbar.navbar-default(role='navigation')
+        .navbar-header.pull-left
+          a.current.navbar-brand(href='index.php')
+            img(src='img/logo.png', width='200')
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='index.php') Home
+            li
+              a(href='ourteam.php') Our Team
+            li
+              a(href='blog.php') Blog
+            li 
+              a(href="profile.php") Directory
+          .pull-right.header-links
+            a.btn.btn-default.navbar-btn.navbar-right(data-event-title='open-registration-form', data-toggle='modal', href='#registerModal') Register
+            a.btn.btn-default.green.navbar-btn.navbar-right(data-event-title='open-login-form', data-toggle='modal', href='#loginModal') Log in
+  //END NAVBAR 

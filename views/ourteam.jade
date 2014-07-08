@@ -1,0 +1,173 @@
+extends layout
+
+block team
+
+  .area-content
+    .container
+      .row.bottom-margin(style='margin-bottom: 10px;')
+        h1.text-center Our Team
+      .row
+
+        #danielBloch.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Daniel Bloch, Operations
+              .modal-body
+                | Information on Bloch...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#danielBloch')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Daniel Bloch, Operations
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Blochs info...
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#danielBloch') + Read More
+
+        #jGardner.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Jeremy Gardner, Operations
+              .modal-body
+                | Information on Jeremy...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#jGardner')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Jeremey Gardner, Operations
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Jeremey info
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#jGardner') + Read More
+
+        #rSelkis.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Ryan Selkis, Blogger
+              .modal-body
+                | Information on Ryan...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#rSelkis')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Ryan Selkis, Blogger
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Ryan info
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#rSelkis') + Read More
+
+        #bKraw.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Ben Krawitz, Web Developer
+              .modal-body
+                | Information on Ben...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#bKraw')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Ben Krawitz, Web Developer
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Ben info
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#bKraw') + Read More
+
+
+        #lenrow.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Stpehen Lenrow, Web Developer
+              .modal-body
+                | Information on Stephen...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#lenrow')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Stephen Lenrow, Web Developer
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Stephen info
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#lenrow') + Read More
+
+        #jack.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Jack Bryne, Web Developer
+              .modal-body
+                | Information on Jack...
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+          ul(style='list-style: none;')
+            li.bio.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .col-xs-12.col-sm-2.col-md-2.col-lg-2
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#jack')
+                  img.img-responsive(src='img/colleges/michigan.png')
+              .col-xs-12.col-sm-10.col-md-10.col-lg-10(style="margin-bottom:5%;")
+                h5(style='margin: 0;')
+                  b(style='font-weight: 500;') Jack Bryne, Web Developer
+                a.social-media(href='#', target='_blank') 
+                  i.fa.fa-linkedin-square
+                a.social-media(href='#', target='_blank')
+                  i.fa.fa-twitter
+                p
+                  | Jack info
+                a(href='javascript:void(0);', data-toggle='modal', data-target='#jack') + Read More
+

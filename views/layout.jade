@@ -1,0 +1,114 @@
+doctype html
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='shortcut icon', href='/img/bitcoin.png')
+
+		// CSS
+		link(rel='stylesheet', href='/css/main.css')
+		link(rel='stylesheet', href='/css/animate.css')
+		link(rel='stylesheet', href='/css/profile.css')
+
+		link(href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
+	body
+		block navbar
+			// Login
+			#loginModal.modal.fade(aria-hidden='true', aria-labelledby='loginModalLabel', role='dialog', tabindex='-1')
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+							h4.modal-title Login
+						.modal-body
+							form(action='/login', method='post', name='form1')
+								.row
+									.col-md-6
+										label.control-label(for='loginName') Username: 
+										input#myusername.form-control(name='username', type='text')
+									.col-md-6
+										label.control-label(for='loginPass') Password: 
+										input#mypassword.form-control(name='password', type='password')
+								.modal-footer
+									button.btn.btn-default(data-event-title='login-cancel', data-dismiss='modal', type='button') Cancel
+									input.btn.btn-default.red(type='submit', name='Submit', value='Login')
+			// END Login 
+			// Registration 
+			#registerModal.modal.fade(aria-hidden='true', aria-labelledby='registerModal', role='dialog', tabindex='-1')
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+							h4.modal-title Register for College Crypto Network
+						.modal-body
+							form(action='/register', method='post', role='form')
+								.row
+									.col-md-6
+										label.control-label(for='name') Name:
+										input#name.form-control(placeholder='', name='name', type='text')
+									.col-md-6
+										label.control-label(for='email') Email:
+										input#email.form-control(placeholder='', name='email', type='text')
+								.row
+									.col-md-6
+										label.control-label(for='school') School:
+										input#school.form-control(placeholder='', name='school', type='text')
+									.col-md-6
+										label.control-label(for='year') Class Standing:
+										input#standing.form-control(placeholder='', name='standing', type='text')
+								.row
+									.col-md-6
+										label.control-label(for='username') Username:
+										input#username.form-control(placeholder='', name='username', type='text')
+									.col-md-6
+										label.control-label(for='password') Password:
+										input#password.form-control(placeholder='', name='password', type='password')
+								.modal-footer
+									button.btn.btn-default(data-event-title='chapter-cancel', data-dismiss='modal', type='button') Cancel
+									button#register-button.btn.btn-default.red(data-event-title='submit', type='submit') Register
+			// END Registration 
+			// NAVBAR 
+			.header-main
+				.container.pb0
+					nav.navbar.navbar-default(role='navigation')
+						.navbar-header.pull-left
+							a.current.navbar-brand(href='/')
+								img(src='/img/logo.png', width='200')
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						#bs-example-navbar-collapse-1.collapse.navbar-collapse
+							ul.nav.navbar-nav
+								li.active
+									a(href='/', id="home") Home
+								li
+									a(href='/ourteam', id="team") Our Team
+								li
+									a(href='/community', id="Community") Community
+								li
+									a(href='/profile', id="profile") Directory
+							.pull-right.header-links
+								a.btn.btn-default.navbar-btn.navbar-right(data-event-title='open-registration-form', data-toggle='modal', href='#registerModal') Register
+								a.btn.btn-default.green.navbar-btn.navbar-right(data-event-title='open-login-form', data-toggle='modal', href='#loginModal') Log in
+			//END NAVBAR 
+		block content
+		block team
+		block profile
+		block footer
+		block blog
+		block start
+			// FOOTER 
+			footer#main-footer
+				#footer-bottom.bl-dark-grey
+					.container
+						.row
+							.copyright
+							center 2013 © College Crypto Network All rights reserved.
+			// /FOOTER 
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+	script(src='/js/bootstrap.min.js')
+	script(src='/js/modal.js')
+

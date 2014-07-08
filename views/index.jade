@@ -1,0 +1,251 @@
+extends layout
+
+block content
+  // Chapter
+  // Login Modal
+  #contactModal.modal.fade(aria-hidden='true', aria-labelledby='contactModal', role='dialog', tabindex='-1')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+          h4.modal-title Join Us!
+        .modal-body
+          form(action='', method='post', role='form')
+            // NEED backened
+            .row
+              .col-md-6
+                label.control-label(for='school') School:
+                input#school.form-control(placeholder='', name='', type='text')
+              .col-md-6
+                label.control-label(for='chapter_email') Email:
+                input#chapterEmail.form-control(placeholder='', name='', type='text')
+        .modal-footer
+          button.btn.btn-default(data-event-title='chapter-cancel', data-dismiss='modal', type='button') Cancel
+          button#login-button.btn.btn-default.red(data-event-title='submit', type='button') Submit
+  // END Login
+  // END Chapter
+  // Main Panel
+  .area-content
+    .container
+      .row.bottom-margin(style='margin-bottom: 10px;')
+        h1.text-center College Cryptocurrency Network.
+      .row
+        p.description.f24.text-center
+          | Named after the “original” cryptocurrency, “Bitcoin Clubs” have proliferated at many of the world’s most prestigious colleges and universities since 2012. Independent of one another, these clubs have been great successes, fostering dialogue and drawing in acclaimed guest speakers. In their short time in existence, College Bitcoiners have gone on to create successful cryptocurrency startups and have received considerable coverage by the press.
+          | Recognizing the inherent strength in numbers, the College Cryptocurrency Network has brought these groups together to form a strong, collective entity.
+          | Learn about the success and activities of existing chapters and the tools you can use to start a College Cryptocurrency club at your college or university today. CCN is here to help!
+        // <img src="img/logo.png" alt="slide_7" class="img100 p40 animated bounceInUp" />
+        .clearfix
+        // Donate button
+        .pull-right
+          a.btn-default.green.getStartedNow.mr140(data-toggle='modal', href='#contactModal') Form A Chapter
+        .clearfix
+  // END Main Panel
+  // Mission Panel
+  .area-content
+    .container.pb0
+      .row.bottom-margin
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          h2.text-center.f45 Our Mission
+      .iconed-features.lift-on-hover.style-1
+        .row
+          .col-xs-12.col-sm-4.col-md-4.col-lg-4
+            .iconed-feature
+              .feature-icon-w
+                i.fa.fa-globe
+              h4 Robust Networks
+              p
+                | The College Cryptocurrency Network (CCN) is an international nonprofit organization dedicated to forming a robust network of college clubs for cryptocurrency education, mining, trading, and start-ups.
+          .col-xs-12.col-sm-4.col-md-4.col-lg-4
+            .iconed-feature
+              .feature-icon-w
+                i.fa.fa-btc
+              h4 Innovations
+              p
+                | The CCN was established to help nascent, burgeoning, and not-yet existing college organizations build a presence on their respective campuses, receive administrative recognition and funding, and to help students connect with similar college groups.
+          .col-xs-12.col-sm-4.col-md-4.col-lg-4
+            .iconed-feature
+              .feature-icon-w
+                i.fa.fa-briefcase
+              h4 Resources
+              p
+                | We provide educational and professional resources, contacts, speakers, and guidance in order to usher in a new era of electronic finance and innovation.
+  // END Mission Panel
+  // Resources
+  .area-content.education
+    .container.pb0
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        h2.text-center.f45
+          | What is a Bitcoin?
+          i.fa.fa-2x.fa-bitcoin
+      .row
+        h3
+          | Welcome to the wonderful world of cryptocurrencies. Soon, explore our wealth of educational multimedia to learn about cryptocurrencies and join the conversation on our discussion boards.
+        .container
+          .process
+            .process-row
+              .process-step
+                button.btn.btn-info.btn-circle(type='button', disabled='disabled')
+                  i.fa.fa-user.fa-3x
+                p Inform Yourself
+              .process-step
+                button.btn.btn-info.btn-circle(type='button', disabled='disabled')
+                  i.fa.fa-barcode.fa-3x
+                p Choose a Wallet
+              .process-step
+                button.btn.btn-info.btn-circle(type='button', disabled='disabled')
+                  i.fa.fa-money.fa-3x
+                p Get Bitcoins
+              .process-step
+                button.btn.btn-info.btn-circle(type='button', disabled='disabled')
+                  i.fa.fa-btc.fa-3x
+                p Spend Bitcoins
+        center
+          iframe(width='640', height='390', src='//www.youtube.com/embed/Um63OQz3bjo', frameborder='0', allowfullscreen='')
+  // END Resources
+  // Colleges
+  section#college
+    .area-content(style='overflow: hidden;')
+      .container.pb0
+        .row.bottom-margin
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            h2.text-center.f45 College Bitcoiners
+        .row.bottom-margin
+          // TABLE
+          table.table
+            // ROW 1
+            tbody
+              tr
+                td
+                  a(href='http://bitcoin.stanford.edu', target='_blank')
+                    img(src='img/colleges/stanford.png')
+                  br
+                  | Standford
+                td
+                  a(href='http://bitcoin.scripts.mit.edu/blog', target='_blank')
+                    img(src='img/colleges/mit.png')
+                  br
+                  | MIT
+                td
+                  a(href='http://a2btc.com', target='_blank')
+                    img(src='img/colleges/michigan.png')
+                  br
+                  | University of Michigan
+                td
+                  img(src='img/colleges/warsaw-1.png')
+                  br
+                  | Warsaw School of Economics
+              // ROW 2
+              tr
+                td
+                  a(href='http://psubtc.com', target='_blank')
+                    img(src='img/colleges/pennstate.png')
+                  br
+                  | Penn State
+                td
+                  img(src='img/colleges/sanfranstate.png')
+                  br
+                  | San Francisco State
+                td
+                  a(href='http://osubg.org', target='_blank')
+                    img(src='img/colleges/osu.png')
+                  br
+                  | Ohio State University
+                td
+                  img(src='img/colleges/northeastern.png')
+                  br
+                  | Northeastern
+              // ROW 3
+              tr
+                td
+                  a(href=' http://bitcoin.berkeley.edu/', target='_blank')
+                    img(src='img/colleges/UC-Berkeley.png')
+                  br
+                  | UC Berkley
+                td
+                  a(href='https://www.facebook.com/BSUStudentsForLiberty', target='_blank')
+                    img(src='img/colleges/boisestate-1.png')
+                  br
+                  | Boise State
+                td
+                  a(href='http://www.sfu.ca/bitcoin/', target='_blank')
+                    img(src='img/colleges/sfu-logo.png')
+                  br
+                  | Simon Fraser University
+                td
+                  a(href='https://www.facebook.com/groups/groupsatkansas/?from=437150206418563', target='_blank')
+                    img(src='img/colleges/UKansas.png')
+                  br
+                  | Kanas
+              // ROW 4
+              tr
+                td
+                  img(src='img/colleges/Kent-State.png')
+                  br
+                  | Kent State
+                td
+                  img(src='img/colleges/Texas.png')
+                  br
+                  | Texas
+                td
+                  img(src='img/colleges/Boston_College_seal.png')
+                  br
+                  | Boston College
+                td
+                  i.fa.fa-8x.fa-question
+                  br
+                  | Your College?
+          // TABLE
+          .clearfix
+  // END College
+  // Convention
+  .area-content.college
+    .container
+      .row.bottom-margin(style='margin-bottom: 10px;')
+        h1.text-center.white College Cryptocurrency Convention 2015
+      .row
+        p.description.f24.text-center.white
+          | The first annual College Cryptocurrency Convention will be held from April 10-12, 2015, at the University of Michigan in Ann Arbor (C3 in A2). We welcome representatives from all existing and aspiring chapters worldwide. Stay tuned for updates on guest speakers, events, and more! A press kit will be put together shortly.
+        .clearfix
+        .clearfix
+  // END Convention
+  // Donate Modal
+  #donateModal.modal.fade(aria-hidden='true', aria-labelledby='donateModal', role='dialog', tabindex='-1')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+          h4.modal-title Donate
+        .modal-body
+          form(action='', method='post', role='form')
+            // NEED backened
+            .row
+              .col-md-6
+                | We Appreciate the Donation!
+        .modal-footer
+          button.btn.btn-default(data-event-title='chapter-cancel', data-dismiss='modal', type='button') Cancel
+          button#login-button.btn.btn-default.red(data-event-title='submit', type='button') Submit
+  // END Donate Modal
+  // Donate or Blog
+  .area-content
+    .container.pb0
+      .row.bottom-margin
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          h2.text-center.marginb
+            | Please feel free to Donate! We accept Bitcoins and Litecoins!
+            br
+            br
+            | Featured By:
+            br
+            br
+            //STILL NEED TO LINK SHIT HERE
+            img(src='img/entrepreneur.png', alt='', style="margin-right:10px;")
+            img(src='img/ed.png', alt='', style="margin-right:10px;")
+            img(src='img/usatoday-1.png', alt='', style="margin-right:10px;")
+            img(src='img/nbc.png', alt='', style="margin-right:10px;")
+            img(src='img/usnews-1.png', alt='', style="margin-top:1%;")
+          .text-center.marginb
+            br
+            br
+            a.btn-default.green.getStartedNow(data-toggle='modal', href='#donateModal') Donate Now!
+  // END Donate
