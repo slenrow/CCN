@@ -23,6 +23,10 @@ var content = "";
 		res.render('profile', {title: 'Directory'})
 	});
 
+	router.get('/calendar', function (req, res) {
+		res.render('calendar', {title: 'Calendar'})
+	});
+
 	router.post('/register', function (req, res) {
 
 		var validEmail = req.body.email;
