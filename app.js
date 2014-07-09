@@ -24,6 +24,26 @@ var routes = require('./routes/index');
 var app = express();
 //app.enable('strict routing');
 
+
+//Socket.io
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendfile('chat.jade');
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
+http.listen(3000, function(){
+  console.log('listening...');
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -39,9 +59,6 @@ app.use(express.static(path.join(__dirname, 'public')));//app.use('public/css', 
 //app.use('public/stylesheets', express.static(path.join(__di'public/stylesheets')));
 //app.all('/main', function(req, res) { res.redirect('/main/'); });
 //app.use('/main/',express.static(__dirname+'/public'));
-
-
-
 
 
 passport.use(new LocalStrategy(Account.authenticate()));
@@ -99,7 +116,10 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
+
 // no need 'var app = require('../app');' any more, cause it has defined in 'app.js' already.
 var debug = require('debug')('my-application');
 // module.exports = app; You need to comment this line which is default in 'app.js' with Express.js 4.x
 module.exports = app;
+

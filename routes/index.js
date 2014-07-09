@@ -27,6 +27,10 @@ var content = "";
 		res.render('calendar', {title: 'Calendar'})
 	});
 
+	router.get('/chat', function (req, res) {
+		res.render('chat', {title: 'Chat'})
+	});
+
 	router.post('/register', function (req, res) {
 
 		var validEmail = req.body.email;
@@ -39,7 +43,6 @@ var content = "";
 			});
 		}
 
-		else if ()
 		else {
 			Account.register(
 				new Account({ 
@@ -107,8 +110,6 @@ var content = "";
 		});
 	});
 
-	
-
 	router.get('/community/start_ups/:id', function(req, res){
 		console.log(req.params.id);
 		
@@ -118,17 +119,10 @@ var content = "";
 					post: post,
 					comments: post.comments
 				});
-
-			
-
-
-			
 		});
 	});
 
 	router.post('/blog/addComment', function(req,res){
-		
-		
 		
 			console.log("this is the post id"+req.body.id);
 			//console.log(req.body.)
@@ -150,8 +144,6 @@ var content = "";
 
 	    console.log("comment content "+comment);
 	    res.redirect('back');
-
-
 	});
 
 module.exports = router;

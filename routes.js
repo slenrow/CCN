@@ -4,8 +4,13 @@ var ArticleProvider = require('./articleprovider-memory').ArticleProvider;
 
 module.exports = function (app) {
 
+
 	app.get('/', function (req, res) {
 		res.render('index', { title: 'CCN', user: req.user });
+	});
+
+	app.get('/', function (req, res){
+		res.render('chat', {title : "Chat"});
 	});
 
 	app.get('/ourteam', function (req, res) {
