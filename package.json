@@ -21,6 +21,11 @@
     "passport-local-mongoose": "^0.3.0",
     "should": "^4.0.0",
     "socket.io": "^1.0.6",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "gridfs-stream": "*",
+    "express-method-override": "*",
+    "multipart": "*",
+    "connect-busboy": "*",
+    "office": "*"
   }
 }

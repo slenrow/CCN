@@ -7,11 +7,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var slash = require('express-slash');
+var methodOverride = require('express-method-override');
+var multipart = require('multipart');
+var busboy = require('connect-busboy');
 
 var mongoose = require('mongoose'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 
+var Grid = require('gridfs-stream');
 
 var mongo = require('mongodb');
 //var monk = require('monk');
@@ -29,9 +33,9 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req, res){
-  res.sendfile('chat.jade');
-});
+/*app.get('/', function(req, res){
+  //res.sendfile('chat.jade');
+//});
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
@@ -41,7 +45,7 @@ io.on('connection', function(socket){
 
 http.listen(3000, function(){
   console.log('listening...');
-});
+});*/
 
 
 // view engine setup
@@ -65,7 +69,7 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-var db = mongoose.connect('mongodb://localhost/ccn');
+var db = mongoose.createConnection('mongodb://localhost/ccn');
 
 //app.use(slash());
 app.use(function(req, res, next) {
@@ -120,6 +124,10 @@ app.use(function(err, req, res, next) {
 
 // no need 'var app = require('../app');' any more, cause it has defined in 'app.js' already.
 var debug = require('debug')('my-application');
+app.set('port', process.env.PORT || 3000);
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
 // module.exports = app; You need to comment this line which is default in 'app.js' with Express.js 4.x
 module.exports = app;
 

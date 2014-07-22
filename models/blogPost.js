@@ -23,6 +23,6 @@ var blogPost = new Schema({
   }
 });
 
-blogPost.plugin(plm);
+//blogPost.plugin(plm);
 
 module.exports = mongoose.model('blogPost', blogPost);

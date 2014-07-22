@@ -4,11 +4,26 @@ var blogPost = require('../models/blogPost');
 var express = require('express');
 var mongoose = require( 'mongoose' );
 //var Comment = mongoose.model( 'Comment' );
+var app = require('../app');
+var fs = require('fs');
+var busboy = require('connect-busboy');
+var Grid = require('gridfs-stream');
+var office = require('office');
 var router = express.Router();
 
 var content = "";
 //var ArticleProvider = require('./articleprovider-memory').ArticleProvider;
 //var ObjectID = require('mongodb').ObjectID
+
+var resourceDB = mongoose.createConnection('mongodb://localhost/resourceDB'); //used with gridFS for file sharing
+
+Grid.mongo = mongoose.mongo;
+var gfs = undefined;
+resourceDB.once('open', function () {
+    console.log("open gfs db");
+  gfs = Grid(resourceDB.db); //gfs ->gridFS db connection var
+  
+});
 
 
 	router.get('/', function (req, res) {
@@ -144,6 +159,63 @@ var content = "";
 
 	    console.log("comment content "+comment);
 	    res.redirect('back');
+	});
+
+	router.get("/community/resources", function(req, res){
+
+		gfs.files.find({}).toArray(function (err, files) {
+			if (err)
+				res.send(err);
+		    //console.log(files);
+			res.render('resources.jade', {
+				title: 'Resources',
+				"resources": files
+						});
+			});
+	});
+
+	router.get("/community/resources/upload", function(req, res){
+		res.render("upload.jade", {title: 'Upload'});
+	});
+
+	router.post("/fileupload", function(req, res){
+		var stream;
+	    req.pipe(req.busboy);
+	    req.busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
+	        console.log("Uploading: " + filename); 
+	        //fstream = fs.createWriteStream('./files/' + filename);
+	        stream = gfs.createWriteStream({filename: filename, content_type: mimetype});
+	        file.pipe(stream);
+	        stream.on('close', function () {
+	            res.redirect('/community/resources'); 
+	        });
+	         
+	    });
+	});
+
+	router.get("/filedownload/:filename", function(req,res){
+		console.log(req.params);
+		//console.log(req.params.filename);
+		var filename = req.params.filename;
+		
+		var downStream = gfs.createReadStream(filename);
+		downStream.pipe(res);
+		downStream.on('close', function(){
+			office.parse(downStream, function(err,data){
+				console.log(data.sheets);
+			});
+			res.redirect("back");
+		});
+		
+		
+		/*
+			console.log("downloading: "+filename);
+			downStream = gfs.createReadStream({filename: filename, content_type: mimetype});
+			downStream.pipe(res);
+			*/
+			
+		
+
 	});
 
 module.exports = router;
