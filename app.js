@@ -1,5 +1,6 @@
 var Account = require('./models/account');
-var Account = require('./models/blogPost');
+var blogPost = require('./models/blogPost');
+var resource = require('./models/resource');
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -30,6 +31,7 @@ var app = express();
 
 
 //Socket.io
+/*
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
@@ -54,6 +56,7 @@ app.set('view engine', 'jade');
 
 app.use(favicon());
 app.use(logger('dev'));
+app.use(busboy()); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
@@ -69,7 +72,7 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-var db = mongoose.createConnection('mongodb://localhost/ccn');
+//var db = mongoose.createConnection('mongodb://localhost/ccn');
 
 //app.use(slash());
 app.use(function(req, res, next) {
@@ -78,11 +81,11 @@ app.use(function(req, res, next) {
    else
        next();
 });
-
+/*
 app.use(function(req,res,next){
     req.db = db;
     next();
-});
+});*/
 
 app.use('/', routes);
 //app.use('/community', routes);

@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var plm = require('passport-local-mongoose');
+var db = mongoose.createConnection('mongodb://localhost/ccn');
 
-var blogPost = new Schema({
+
+var blogStructure = new Schema({
   
   title:  String,
   username: String,
   content:   String,
+  votes: Number,
   comments: [{ 
       body: String, 
       date: Date, 
@@ -17,12 +19,10 @@ var blogPost = new Schema({
     default: Date.now 
   },
   hidden: Boolean,
-  meta: {
-    votes: Number,
-    favs:  Number
-  }
+  favs:  Number
 });
 
-//blogPost.plugin(plm);
+var blogPost = db.model('blogPost', blogStructure);
 
-module.exports = mongoose.model('blogPost', blogPost);
+
+module.exports = blogPost;
