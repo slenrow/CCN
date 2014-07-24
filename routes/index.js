@@ -36,15 +36,15 @@ resourceDB.once('open', function () {
 	});
 
 	router.get('/profile', function (req, res) {
+    console.log(req.user);
+    console.log(req.session);
 		res.render('profile', {title: 'Directory'})
 	});
 
 	router.get('/calendar', function (req, res) {
+    console.log(req.user);
+    console.log(req.session);
 		res.render('calendar', {title: 'Calendar'})
-	});
-
-	router.get('/chat', function (req, res) {
-		res.render('chat', {title: 'Chat'})
 	});
 
 	router.post('/register', function (req, res) {
@@ -82,7 +82,7 @@ resourceDB.once('open', function () {
 	});
 
 	router.post('/login', passport.authenticate('local'), function (req, res) {
-		res.redirect('/');
+		res.redirect('/profile');
 	});
 
 	router.get('/logout', function (req, res) {

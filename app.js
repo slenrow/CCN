@@ -2,6 +2,7 @@ var Account = require('./models/account');
 var blogPost = require('./models/blogPost');
 var resource = require('./models/resource');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -24,31 +25,11 @@ var mongo = require('mongodb');
 //var db = monk('localhost:27017');
 
 var routes = require('./routes/index');
+var chatRoutes = require('./routes/chat');
 //var users = require('./routes/users');
 
 var app = express();
 //app.enable('strict routing');
-
-
-//Socket.io
-/*
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-/*app.get('/', function(req, res){
-  //res.sendfile('chat.jade');
-//});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-http.listen(3000, function(){
-  console.log('listening...');
-});*/
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -60,8 +41,6 @@ app.use(busboy());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(passport.initialize());
-app.use(passport.session());
 //app.use('/static', express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));//app.use('public/css', express.static(path.join(__dirname, 'public/css')));
 //app.use('public/js', express.static(path.join(__dirname, 'public/js')));
@@ -70,7 +49,15 @@ app.use(express.static(path.join(__dirname, 'public')));//app.use('public/css', 
 //app.use('/main/',express.static(__dirname+'/public'));
 
 
-passport.use(new LocalStrategy(Account.authenticate()));
+// passport configuration
+app.use(session({
+  secret: 'ccn and btc are awesome',
+  saveUninitialized: true,
+  resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(Account.createStrategy());
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
@@ -89,6 +76,7 @@ app.use(function(req,res,next){
     next();
 });*/
 
+app.use('/chat', chatRoutes);
 app.use('/', routes);
 //app.use('/community', routes);
 

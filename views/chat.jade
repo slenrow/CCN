@@ -1,40 +1,47 @@
 extends layout
 
-block blog
+block scripts
+  script.
+    var field = "<input class='form-control', name='members', placeholder='Add Person'>";
+    function appendField() {
+      $("#members").append(field);
+    }
 
+block blog
   .area-content
     .container
       .row.bottom-margin(style='margin-bottom: 10px;')
         h1.text-center Chat
+
+        .row
+          .col-md-4
+            h3.text-center Join
+
+          .col-md-4
+            h3.text-center New
+            div
+              form.form-horizontal(
+                role="form",
+                name="createGroup",
+                id="createGroup",
+                method="post",
+                action="/chat/new"
+              )
+                div.form-group
+                  b Group Name
+                  input.form-control(type='text', name='name', placeholder='Group Name')
+                div.form-group#members
+                  b Group Members
+                  input.form-control(type='text', name='members', placeholder='Add Person')
+
+              button.btn.btn-primary(style="float:left", onclick="appendField()") +
+              button.btn.btn-primary(style="float:right", type='submit', form='createGroup') Create
+
+          .col-md-4
+            h3.text-center Edit
+
+
       .row
         .fluid-container(style='padding-left: 15px; padding-right: 15px;')
         .clearfix
         .clearfix
-//
-  style
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font: 13px Helvetica, Arial; }
-    form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-    form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-    form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-    #messages { list-style-type: none; margin: 0; padding: 0; }
-    #messages li { padding: 5px 10px; }
-    #messages li:nth-child(odd) { background: #eee; }
-  body
-    ul#messages
-    form(action='')
-      input#m(autocomplete='off')
-      button Send
-    script(src='/socket.io/socket.io.js')
-    script(src='http://code.jquery.com/jquery-1.11.1.js')
-    script
-      var socket = io();
-      $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-      });
-      socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-      });
-
