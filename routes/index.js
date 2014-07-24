@@ -113,6 +113,10 @@ resourceDB.once('open', function () {
 		res.render("blog_new.jade", {title: 'New Post'});
 	});
 
+	router.get("/dropdown", function(req, res){
+		res.render("dropdowntest.jade", {title: 'New Post'});
+	});
+
 	router.post("/community/start_ups/new",function(req,res){
 		var bPost = new blogPost();
 		bPost.title = req.body.title;

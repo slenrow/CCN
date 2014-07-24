@@ -60,6 +60,8 @@ app.use(busboy());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 //app.use('/static', express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));//app.use('public/css', express.static(path.join(__dirname, 'public/css')));
 //app.use('public/js', express.static(path.join(__dirname, 'public/js')));

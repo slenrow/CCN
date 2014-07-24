@@ -9,25 +9,19 @@ block blog
     .container
       .row.bottom-margin(style='margin-bottom: 10px;')
         h1.text-center Start Up Central
-        .dropdown(style='padding-left:35px')
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle(style="float:left;",stlyetype='button', data-toggle='dropdown')
+        .dropdown(style='padding-bottom:35px')
+          button#dropdownMenu1.btn.btn-default.dropdown-toggle(style="float:right;",stlyetype='button', data-toggle='dropdown')
               | Filter By:
               span.caret
-            ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+            ul.dropdown-menu.pull-right(role='menu', aria-labelledby='dropdownMenu1')
               li(role='presentation')
                 a(role='menuitem', tabindex='-1', href='#') Date Modified
               li(role='presentation')
                 a(role='menuitem', tabindex='-1', href='#') Most Votes
               li(role='presentation')
                 a(role='menuitem', tabindex='-1', href='#') A-Z
-              li(role='presentation')
-                a(role='menuitem', tabindex='-1', href='#') Separated link
       .row
-        //
-          Person
-        //
-
- 
+      .row
         .fluid-container(style='padding-left: 15px; padding-right: 15px;padding-top: 15px;')
           ul(style='list-style: none;')
             div
