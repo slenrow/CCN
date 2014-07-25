@@ -3,12 +3,10 @@ var Schema = mongoose.Schema;
 var db = mongoose.createConnection('mongodb://localhost/ccn');
 
 var groupStructure = new Schema({
-  name: String,
-  owners: [String],
   members: [String],
   messages: [String]
 });
 
-var chatGroup = db.model('chatGroup', groupStructure);
+var ChatGroup = db.model('ChatGroup', groupStructure);
 
-module.exports = chatGroup;
+module.exports = ChatGroup;

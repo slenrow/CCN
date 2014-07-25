@@ -36,15 +36,11 @@ resourceDB.once('open', function () {
 	});
 
 	router.get('/profile', function (req, res) {
-    console.log(req.user);
-    console.log(req.session);
-		res.render('profile', {title: 'Directory'})
+		res.render('profile', {title: 'Directory'});
 	});
 
 	router.get('/calendar', function (req, res) {
-    console.log(req.user);
-    console.log(req.session);
-		res.render('calendar', {title: 'Calendar'})
+		res.render('calendar', {title: 'Calendar'});
 	});
 
 	router.post('/register', function (req, res) {

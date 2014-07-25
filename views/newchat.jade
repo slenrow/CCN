@@ -1,0 +1,27 @@
+extends layout
+
+block scripts
+  script.
+    var field = "<input class='form-control', type='type', name='members', placeholder='Add Person'>";
+    function appendField() {
+      $("#create").append('<div class="form-group">' + field + '</div');
+    }
+
+block blog
+  .area-content
+    .container
+      .row.bottom-margin(style='margin-bottom: 10px;')
+
+        form(method='post', action='/chat/new', id='create', name='create')
+          .form-group
+            input.form-control(type='text', name='members', placeholder='Add Person')
+
+        button.btn.btn-primary.btn-xs(id='add', onclick='appendField()') +
+        br
+        br
+        button.btn.btn-primary(type='submit', form='create') Create
+
+      .row
+        .fluid-container(style='padding-left: 15px; padding-right: 15px;')
+        .clearfix
+        .clearfix
